@@ -4,7 +4,7 @@ const io = require('socket.io')(httpServer, {
 });
 const StringDecoder = require('string_decoder').StringDecoder;
 
-const PORT = process.env.PORT | 5001;
+const PORT = process.env.PORT | 4011;
 
 let GlobalSocket = null;
 let BotId = null;
@@ -23,8 +23,6 @@ function mainServer(req, res) {
     if (req.method == 'POST') {
       // console.log(req)
         const decoder = new StringDecoder('utf-8');
-
-        webhook.listener(vote => console.log(vote.user));
         let buffer = '';
         req.on('data', data => {
             /*
