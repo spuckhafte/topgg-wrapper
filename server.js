@@ -1,6 +1,6 @@
 const httpServer = require('http').createServer((req, res) => mainServer(req, res));
 const Topgg = require("@top-gg/sdk");
-const io = require('socket.io')(http, {
+const io = require('socket.io')(httpServer, {
     cors: { origin: "*" }
 });
 
@@ -13,8 +13,9 @@ io.on('connection', socket => {
     GlobalSocket = socket;
 })
 
-function mainServer(req) {
+function mainServer(req, res) {
     if (req.method == 'POST') {
+        console.log('hi')
         req.on('data', data => console.log(data));
     }
 }
