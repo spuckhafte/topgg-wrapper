@@ -1,8 +1,7 @@
 const { io } = require('socket.io-client');
 
-const socket = io('http://5ba1-223-233-73-116.ngrok.io');
-
-socket.emit('handshake', '964474872912822323');
+const socket = io('https://topgg-wrapper-production.up.railway.app');
+socket.emit('handshake', '964474872912822323'); // bot-id
 
 socket.on('connected', ok => console.log(ok));
 
