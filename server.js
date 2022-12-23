@@ -1,10 +1,13 @@
-const httpServer = require('http').createServer((req, res) => mainServer(req, res));
-const io = require('socket.io')(httpServer, {
+import http from 'http';
+import { Server } from 'socket.io'
+import { StringDecoder } from 'string_decoder'
+
+const httpServer = http.createServer((req, res) => mainServer(req, res));
+const io = new Server(httpServer, {
     cors: { origin: "*" }
 });
-const StringDecoder = require('string_decoder').StringDecoder;
 
-const PORT = process.env.PORT | 4011;
+const PORT = process.env.PORT;
 
 let GlobalSocket = null;
 let BotId = null;
