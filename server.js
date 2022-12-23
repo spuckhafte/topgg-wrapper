@@ -21,15 +21,9 @@ io.on('connection', socket => {
 function mainServer(req, res) {
     if (!GlobalSocket) return;
     if (req.method == 'POST') {
-      // console.log(req)
         const decoder = new StringDecoder('utf-8');
         let buffer = '';
         req.on('data', data => {
-            /*
-                payload data comes in streams, small bits.
-                This event gets called, collects all the bits and return it to us in a utf-8 format.
-                Then we are decoding and storing it in a variable.
-            */
             buffer += decoder.write(data);
         });
         req.on('end', () => {
@@ -41,9 +35,6 @@ function mainServer(req, res) {
     }
 }
 
-
-
-// Listen HTTP
 httpServer.listen(PORT, () => {
     console.log(`listening on ${PORT}*`);
 });
