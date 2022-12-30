@@ -2,7 +2,7 @@
 Easily get the data of users whenever they vote your bot,<br>
 using [socket.io-client](https://socket.io/docs/v4/client-api/).
 
-### Current server: `http://lol.daki.cc:4100/`
+### Current server: `http://lol.daki.cc:4062`
 
 # Steps
 1. `npm i socket.io-client`
@@ -12,7 +12,7 @@ using [socket.io-client](https://socket.io/docs/v4/client-api/).
 ```js
 import { io } from 'socket.io-client';
 
-const socket = io('http://lol.daki.cc:4100/');
+const socket = io('http://lol.daki.cc:4062');
 const botId = "24134322342342"
 
 socket.emit('handshake', botId);
